@@ -11,7 +11,6 @@ public class LaserReciever : PowerSource
     {
         if(_powerTimeRemaining > 0.0f)
         {
-            Debug.Log(_powerTimeRemaining);
             _powerTimeRemaining -= Time.fixedDeltaTime;
         }
     }

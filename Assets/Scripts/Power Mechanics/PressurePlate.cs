@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PressurePlate : PowerSource
 {
-    protected bool _isPressed = false;
     public float ExtraPowerTime = 0.3f;
     protected float _powerTimeRemaining = 0.0f;
 
     protected virtual void FixedUpdate()
     {
-        if(!_isPressed && _powerTimeRemaining > 0.0f)
+        if(_powerTimeRemaining > 0.0f)
         {
             _powerTimeRemaining -= Time.fixedDeltaTime;
         }
@@ -20,7 +19,6 @@ public class PressurePlate : PowerSource
         if(other.GetComponent<Rigidbody>())
         {
             _powerTimeRemaining = ExtraPowerTime;
-            _isPressed = true;
         }
     }
 
