@@ -6,6 +6,7 @@ using UnityEngine;
 public class Pawn : MonoBehaviour
 {
     public float MovementSpeed;
+    public float SprintMultiplier = 1.5f;
     public float JumpVelocity;
     public Transform cameraPivotTransform;
     public Transform feetCheckTransform;
@@ -21,6 +22,8 @@ public class Pawn : MonoBehaviour
     protected bool _wantsToJump = false;
     protected bool _isGrounded = false;
     protected Vector3 _movementVelocity;
+
+    protected bool _isSprinting = false;
 
     protected virtual void Start()
     {
@@ -62,6 +65,11 @@ public class Pawn : MonoBehaviour
         Vector3 moveVelocity = _movementMapForward * input.y + _movementMapRight * input.x;
 
         _movementVelocity = moveVelocity * MovementSpeed;
+
+        if(_isSprinting)
+        {
+            _movementVelocity *= SprintMultiplier;
+        }
     }
 
     public virtual void HandleJump(bool value)
@@ -78,12 +86,19 @@ public class Pawn : MonoBehaviour
 
     public virtual void HandleInteract(bool value)
     {
-
+        if(value)
+        {
+            Debug.Log("I'm interacting! Ah ha!");
+            transform.position = new Vector3(2.5f, 2.0f, 1.5f);
+        }
     }
 
     public virtual void HandleSprint(bool value)
     {
-
+        if(value)
+        {
+            _isSprinting = !_isSprinting;
+        }
     }
 
     public virtual void HandleSwitchCameraAngle(bool value)
@@ -94,7 +109,6 @@ public class Pawn : MonoBehaviour
             {
                 _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToCameraAngle(cameraAngles[currentCameraAngleIndex]));
             }
-            
         }
     }
     #endregion
