@@ -25,6 +25,9 @@ public class Pawn : MonoBehaviour
 
     protected bool _isSprinting = false;
 
+    //TEMP
+    private Vector3 _startingPosition;
+
     protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -32,6 +35,9 @@ public class Pawn : MonoBehaviour
         _rb.useGravity = false;
 
         CalculateMovementMapping();
+
+        //TEMP
+        _startingPosition = transform.position;
     }
 
     protected virtual void FixedUpdate()
@@ -89,7 +95,7 @@ public class Pawn : MonoBehaviour
         if(value)
         {
             Debug.Log("I'm interacting! Ah ha!");
-            transform.position = new Vector3(2.5f, 2.0f, 1.5f);
+            transform.position = _startingPosition;
         }
     }
 
