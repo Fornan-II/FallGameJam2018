@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class State : ScriptableObject
+public abstract class State : MonoBehaviour
 {
     public enum StatePhase
     {

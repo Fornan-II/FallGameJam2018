@@ -17,7 +17,7 @@ public class StateMachine : MonoBehaviour
     {
         if(!_activeState && CurrentNode)
         {
-            _activeState = ScriptableObject.CreateInstance(CurrentNode.StateName) as State;
+            _activeState = gameObject.AddComponent(System.Type.GetType(CurrentNode.StateName)) as State;
         }
 
         if(_activeState)
@@ -74,20 +74,13 @@ public class StateMachine : MonoBehaviour
                             CurrentNode = CurrentNode.NextNode;
                         }
 
+                        Destroy(_activeState);
                         _activeState = null;
                         break;
                     }
             }
 
             _oldStatePhase = phaseOnStateProcessing;
-        }
-    }
-
-    public void EndIdle()
-    {
-        if(_activeState is Idle)
-        {
-            (_activeState as Idle).RemainActive = false;
         }
     }
 }
