@@ -19961,6 +19961,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 58de93df4f9e68848b733e39c53d69ef, type: 2}
+    - target: {fileID: 100002, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
   m_IsPrefabAsset: 0
@@ -21839,6 +21847,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &989431936 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114700679669437810, guid: 07b4db098a4d12b4eb39a69297f0d5fe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1240959296}
+  m_Script: {fileID: 11500000, guid: 30f54c1f66800d14bb517f1cc5a47a0f, type: 3}
 --- !u!1 &991817315
 GameObject:
   m_ObjectHideFlags: 0
@@ -34111,6 +34125,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114103922026588962, guid: 0af8ba744bea75d40b866682849bf3d6,
+        type: 2}
+      propertyPath: ControlledPawn
+      value: 
+      objectReference: {fileID: 989431936}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af8ba744bea75d40b866682849bf3d6, type: 2}
   m_IsPrefabAsset: 0
@@ -39364,6 +39383,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1806864791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 841d5c7e76fc6fc49ace61cb5477303a,
+    type: 3}
+  m_PrefabInternal: {fileID: 916604908}
+--- !u!64 &1806864795
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806864791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
 --- !u!1 &1810182181
 GameObject:
   m_ObjectHideFlags: 0
@@ -41476,7 +41514,7 @@ GameObject:
   - component: {fileID: 1883844170}
   - component: {fileID: 1883844169}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43366,7 +43404,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1972900113}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 0

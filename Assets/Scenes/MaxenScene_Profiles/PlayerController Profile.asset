@@ -84,7 +84,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 2
+    value: 0
   contrast:
     overrideState: 1
     value: 0
@@ -1341,10 +1341,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.4
+    value: 4.58
   threshold:
     overrideState: 1
-    value: 4
+    value: 0
   softKnee:
     overrideState: 1
     value: 0.5
