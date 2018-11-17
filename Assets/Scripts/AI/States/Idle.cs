@@ -9,7 +9,6 @@ public class Idle : State
     public override void OnEnter()
     {
         _currentPhase = StatePhase.ACTIVE;
-        Debug.Log("OnEnter");
     }
 
     public override void ActiveBehavior()
@@ -18,13 +17,10 @@ public class Idle : State
         {
             _currentPhase = StatePhase.EXITING;
         }
-
-        Debug.Log("Idling");
     }
 
     public override void OnExit()
     {
         _currentPhase = StatePhase.INACTIVE;
-        Debug.Log("OnExit");
     }
 }

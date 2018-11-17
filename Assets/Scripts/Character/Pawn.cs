@@ -113,7 +113,7 @@ public class Pawn : MonoBehaviour
         {
             if (_activeCameraSlerpingCoroutine == null)
             {
-                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToCameraAngle(cameraAngles[currentCameraAngleIndex]));
+                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToNextCameraAngle());
             }
         }
     }
@@ -153,17 +153,17 @@ public class Pawn : MonoBehaviour
         _rb.velocity = newVelocity;
     }
 
-    protected IEnumerator SlerpToCameraAngle(Vector3 targetAngle)
+    protected IEnumerator SlerpToNextCameraAngle()
     {
         currentCameraAngleIndex++;
         if (currentCameraAngleIndex >= cameraAngles.Length)
         {
             currentCameraAngleIndex = 0;
         }
-
+        
         float timeToReachTargetAngle = 0.7f;
         Quaternion startingRotation = cameraPivotTransform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(targetAngle);
+        Quaternion targetRotation = Quaternion.Euler(cameraAngles[currentCameraAngleIndex]);
 
         for (float timer = 0.0f; timer < timeToReachTargetAngle; timer += Time.deltaTime)
         {
