@@ -28,19 +28,7 @@ public class Pawn : MonoBehaviour
         //I'm applying gravity manually to make it feel different.
         _rb.useGravity = false;
 
-        if(cameraAngles == null)
-        {
-            cameraAngles = new Vector3[]
-            {
-                cameraPivotTransform.rotation.eulerAngles
-            };
-        }
-        else
-        {
-            cameraAngles[0] = cameraPivotTransform.rotation.eulerAngles;
-        }
-
-        CalculateMovemementMapping();
+        CalculateMovementMapping();
     }
 
     protected virtual void FixedUpdate()
@@ -50,7 +38,7 @@ public class Pawn : MonoBehaviour
     }
 
     #region Input
-    public virtual void CalculateMovemementMapping()
+    public virtual void CalculateMovementMapping()
     {
         if(cameraPivotTransform)
         {
@@ -102,11 +90,11 @@ public class Pawn : MonoBehaviour
     {
         if (value)
         {
-            if (_activeCameraSlerpingCoroutine != null)
+            if (_activeCameraSlerpingCoroutine == null)
             {
-                StopCoroutine(_activeCameraSlerpingCoroutine);
+                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToCameraAngle(cameraAngles[currentCameraAngleIndex]));
             }
-            _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToCameraAngle(cameraAngles[currentCameraAngleIndex]));
+            
         }
     }
     #endregion
@@ -147,26 +135,24 @@ public class Pawn : MonoBehaviour
 
     protected IEnumerator SlerpToCameraAngle(Vector3 targetAngle)
     {
-        float timeToReachTargetAngle = 1.0f;
-        Vector3 startingAngle = cameraPivotTransform.rotation.eulerAngles;
-
-        Debug.DrawRay(cameraPivotTransform.position, startingAngle, Color.blue);
-        Debug.DrawRay(cameraPivotTransform.position, targetAngle, Color.red);
-        UnityEditor.EditorApplication.isPaused = true;
-
-        for (float timer = 0.0f; timer < timeToReachTargetAngle; timer += Time.deltaTime)
-        {
-            yield return null;
-            cameraPivotTransform.rotation = Quaternion.Euler(Vector3.Slerp(startingAngle, targetAngle, timer / timeToReachTargetAngle));
-        }
-
-        cameraPivotTransform.rotation = Quaternion.Euler(targetAngle);
         currentCameraAngleIndex++;
-        if(currentCameraAngleIndex >= cameraAngles.Length)
+        if (currentCameraAngleIndex >= cameraAngles.Length)
         {
             currentCameraAngleIndex = 0;
         }
 
+        float timeToReachTargetAngle = 0.7f;
+        Quaternion startingRotation = cameraPivotTransform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(targetAngle);
+
+        for (float timer = 0.0f; timer < timeToReachTargetAngle; timer += Time.deltaTime)
+        {
+            yield return null;
+            cameraPivotTransform.rotation = Quaternion.Slerp(startingRotation, targetRotation, timer / timeToReachTargetAngle);
+            CalculateMovementMapping();
+        }
+
+        cameraPivotTransform.rotation = targetRotation;
         _activeCameraSlerpingCoroutine = null;
     }
 }
