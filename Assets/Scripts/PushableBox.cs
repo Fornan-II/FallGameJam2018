@@ -29,9 +29,25 @@ public class PushableBox : Interactable
         }
     }
 
-    public override void Interact(GameObject interacter)
+    public override Vector3 Interact(GameObject interacter)
     {
-        throw new System.NotImplementedException();
+        Vector3 deltaPosition = interacter.transform.position - transform.position;
+        deltaPosition.y = 0.0f;
+        if (Mathf.Abs(deltaPosition.x) > Mathf.Abs(deltaPosition.z))
+        {
+            deltaPosition.z = 0.0f;
+        }
+        else
+        {
+            deltaPosition.x = 0.0f;
+        }
+
+        deltaPosition.Normalize();
+
+        PushBox(deltaPosition * -1f);
+        deltaPosition += transform.position;
+        deltaPosition.y = _col.bounds.min.y;
+        return deltaPosition;
     }
 
     public bool PushBox(Vector3 direction)

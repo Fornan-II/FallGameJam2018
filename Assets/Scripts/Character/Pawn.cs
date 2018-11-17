@@ -25,8 +25,7 @@ public class Pawn : MonoBehaviour
 
     protected bool _isSprinting = false;
 
-    //TEMP
-    private Vector3 _startingPosition;
+    protected Interactable interactableObject;
 
     protected virtual void Start()
     {
@@ -35,15 +34,13 @@ public class Pawn : MonoBehaviour
         _rb.useGravity = false;
 
         CalculateMovementMapping();
-
-        //TEMP
-        _startingPosition = transform.position;
     }
 
     protected virtual void FixedUpdate()
     {
         CheckIfGrounded();
         DetermineVelocity();
+        FindInteractAbleObject();
     }
 
     #region Input
@@ -92,10 +89,9 @@ public class Pawn : MonoBehaviour
 
     public virtual void HandleInteract(bool value)
     {
-        if(value)
+        if(value && interactableObject)
         {
-            Debug.Log("I'm interacting! Ah ha!");
-            transform.position = _startingPosition;
+            interactableObject.Interact(gameObject);
         }
     }
 
@@ -174,5 +170,38 @@ public class Pawn : MonoBehaviour
 
         cameraPivotTransform.rotation = targetRotation;
         _activeCameraSlerpingCoroutine = null;
+    }
+
+    protected virtual void FindInteractAbleObject()
+    {
+        float checkRadius = 1f;
+        Collider[] nearbyColliders = Physics.OverlapSphere(transform.position, checkRadius);
+        List<Interactable> nearbyInteractables = new List<Interactable>();
+        foreach(Collider c in nearbyColliders)
+        {
+            Interactable i = c.GetComponent<Interactable>();
+            if(i)
+            {
+                nearbyInteractables.Add(i);
+            }
+        }
+
+        if(nearbyInteractables.Count > 0)
+        {
+            interactableObject = nearbyInteractables[0];
+            float interactableDistance = Vector3.Distance(transform.position, interactableObject.transform.position);
+            for(int i = 1; i < nearbyInteractables.Count; i++)
+            {
+                if (Vector3.Distance(transform.position, nearbyInteractables[i].transform.position) < interactableDistance)
+                {
+                    interactableObject = nearbyInteractables[i];
+                    interactableDistance = Vector3.Distance(transform.position, interactableObject.transform.position);
+                }
+            }
+        }
+        else
+        {
+            interactableObject = null;
+        }
     }
 }

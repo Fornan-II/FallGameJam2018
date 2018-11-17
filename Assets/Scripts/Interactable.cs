@@ -4,5 +4,6 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public abstract void Interact(GameObject interacter);
+    //The returned Vector3 is the position the interacter should snap to
+    public abstract Vector3 Interact(GameObject interacter);
 }
