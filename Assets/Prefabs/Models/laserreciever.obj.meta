@@ -9,6 +9,7 @@ ModelImporter:
     400002: pCylinder1
     2100000: blinn1SG
     2100002: blinn2SG
+    2100004: pCylinder1Mat
     2300000: pCylinder1
     3300000: pCylinder1
     4300000: pCylinder1
