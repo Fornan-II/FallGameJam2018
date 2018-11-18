@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour {
     Camera camScript;
     float size;
     float maxDist = 70;
-    float minDist = 5;
+    float minDist = 7;
     Vector3 startPos;
     Vector3 endPos;
 
@@ -51,7 +51,7 @@ public class StartGame : MonoBehaviour {
     void BeginGame()
     {
         startPanel.SetActive(false);
-        cam.transform.localPosition = Vector3.Lerp(startPos, endPos, 5000 * Time.deltaTime);
+        cam.transform.localPosition = Vector3.Lerp(startPos, endPos, 1);
 
         while(size > minDist)
         {
