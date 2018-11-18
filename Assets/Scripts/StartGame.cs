@@ -34,6 +34,7 @@ public class StartGame : MonoBehaviour {
         if(player.GetComponent<PlayerController>())
         {
             player.GetComponent<PlayerController>().LockCameraRot = true;
+            player.GetComponent<PlayerController>().enabled = false;
         }
 	}
 	
@@ -51,8 +52,9 @@ public class StartGame : MonoBehaviour {
     {
         cam.transform.localPosition = startPos;
         startPos = cam.transform.localPosition;
+        player.GetComponent<PlayerController>().enabled = true;
 
-        for(float timer = 0.0f; timer < zoomTime; timer += Time.deltaTime)
+        for (float timer = 0.0f; timer < zoomTime; timer += Time.deltaTime)
         {
             yield return null;
 

@@ -258,7 +258,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97584
+  m_Name: pb_Mesh440956
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -418,7 +418,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh231666
+  m_Name: pb_Mesh440998
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1031,6 +1031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: {fileID: 872641659}
   Rotator: {fileID: 297527102}
+  poweredRotation: {x: 0, y: 0, z: 0}
+  unPoweredRotation: {x: -90, y: 0, z: 0}
 --- !u!114 &297527102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,7 +1222,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh231734
+  m_Name: pb_Mesh441012
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6091,7 +6093,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97734
+  m_Name: pb_Mesh441106
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6256,7 +6258,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97556
+  m_Name: pb_Mesh440928
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -28553,6 +28555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: {fileID: 1177318973}
   Rotator: {fileID: 874508524}
+  poweredRotation: {x: 0, y: 0, z: 0}
+  unPoweredRotation: {x: 90, y: 0, z: 0}
 --- !u!114 &874508524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28591,15 +28595,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4899240756389784, guid: d680c56074bf4754abc836275fe0ee2f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.923
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 4899240756389784, guid: d680c56074bf4754abc836275fe0ee2f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.94
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4899240756389784, guid: d680c56074bf4754abc836275fe0ee2f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.041
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4899240756389784, guid: d680c56074bf4754abc836275fe0ee2f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -30093,7 +30097,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97424
+  m_Name: pb_Mesh440796
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -31554,7 +31558,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97466
+  m_Name: pb_Mesh440838
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -32990,6 +32994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: {fileID: 539913320}
   Rotator: {fileID: 1428422002}
+  poweredRotation: {x: 0, y: 0, z: 0}
+  unPoweredRotation: {x: 180, y: 0, z: 0}
 --- !u!114 &1428422002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37915,7 +37921,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh97606
+  m_Name: pb_Mesh440978
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
