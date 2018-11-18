@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d80226787bb3d8d4ca34b5b8591ec9f1
+guid: 516e127296ad2854db1678a8dba1b760
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,6 @@ ModelImporter:
     400002: pCylinder1
     2100000: blinn1SG
     2100002: blinn2SG
-    2100004: pCylinder1Mat
     2300000: pCylinder1
     3300000: pCylinder1
     4300000: pCylinder1
