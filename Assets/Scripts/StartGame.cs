@@ -9,10 +9,10 @@ public class StartGame : MonoBehaviour {
     public GameObject startPanel;
     GameObject player;
 
-    public Camera cam;
+    Camera cam;
     Camera camScript;
     float size;
-    float maxDist = 70;
+    float maxDist = 100;
     float minDist = 7;
     Vector3 startPos;
     Vector3 endPos;
