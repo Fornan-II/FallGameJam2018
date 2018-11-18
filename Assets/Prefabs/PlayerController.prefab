@@ -57,9 +57,9 @@ MonoBehaviour:
   - Horizontal
   - Vertical
   - Jump
+  - Fire3
   - Fire1
   - Fire2
-  - Fire3
 --- !u!114 &114710736814397730
 MonoBehaviour:
   m_ObjectHideFlags: 1
