@@ -34,3 +34,11 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/ProBuilder Data/ProBuilderPreferences.asset
+Assets/ProBuilder Data/ProBuilderPreferences.asset.meta
+Assets/Scenes/MaxenScene_Clone.unity
+ProjectSettings/ProjectVersion.txt
+Assets/Scenes/MaxenScene_Clone.unity.meta
+Assets/ProBuilder Data/ProBuilderPreferences.asset.meta
+ProjectSettings/ProjectVersion.txt
+Assets/ProBuilder Data/ProBuilderPreferences.asset
