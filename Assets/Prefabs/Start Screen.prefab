@@ -187,10 +187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d80c829a93b1a43b234cc68b6f6e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPanel: {fileID: 1569274413745894}
+  startTexts:
+  - {fileID: 114551435934803818}
+  - {fileID: 114392861860337098}
   startSize: 100
   endSize: 7
   zoomTime: 7
+  endPos: {x: 0, y: -14, z: -36}
 --- !u!114 &114278082756078018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,7 +235,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 065546c4b9018354abba33285e055a8a, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -502,9 +505,9 @@ RectTransform:
   m_Father: {fileID: 224190497393635538}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -299}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224190497393635538
