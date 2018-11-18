@@ -5,6 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Pawn : MonoBehaviour
 {
+    // determinvelocity for walking and jumping (for jumping triggers: checkifgrounded)
+    // handleinteract for kicking
+
+    public Animator _anim;
+
     public float MovementSpeed;
     public float SprintMultiplier = 1.5f;
     public float JumpVelocity;
@@ -29,11 +34,15 @@ public class Pawn : MonoBehaviour
 
     protected virtual void Start()
     {
+        _anim = GetComponentInChildren<Animator>();
+
         _rb = GetComponent<Rigidbody>();
         //I'm applying gravity manually to make it feel different.
         _rb.useGravity = false;
 
         CalculateMovementMapping();
+
+        _anim.SetTrigger("Idle");
     }
 
     protected virtual void FixedUpdate()
@@ -92,6 +101,8 @@ public class Pawn : MonoBehaviour
         if(value && interactableObject)
         {
             interactableObject.Interact(gameObject);
+            _anim.SetTrigger("Kick");
+            //_anim.ResetTrigger("Kick");
         }
     }
 
@@ -154,6 +165,9 @@ public class Pawn : MonoBehaviour
         {
             yVel += JumpVelocity;
             _wantsToJump = false;
+            _anim.ResetTrigger("Walk");
+            _anim.ResetTrigger("Idle");
+            _anim.SetTrigger("FullJump");
         }
         else
         {
@@ -162,6 +176,17 @@ public class Pawn : MonoBehaviour
         newVelocity.y = yVel;
 
         _rb.velocity = newVelocity;
+
+        if(newVelocity.magnitude > 0.5)
+        {
+            _anim.ResetTrigger("Idle");
+            _anim.SetTrigger("Walk");
+        }
+        else
+        {
+            _anim.ResetTrigger("Walk");
+            _anim.SetTrigger("Idle");
+        }
     }
 
     protected IEnumerator SlerpToNextCameraAngle(Vector3 targetAngle)
