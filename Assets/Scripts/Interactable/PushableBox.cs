@@ -31,6 +31,8 @@ public class PushableBox : Interactable
 
     public override void Interact(GameObject interacter)
     {
+        if(!AllowInteract) { return; }
+
         Vector3 deltaPosition = interacter.transform.position - transform.position;
         deltaPosition.y = 0.0f;
         if (Mathf.Abs(deltaPosition.x) > Mathf.Abs(deltaPosition.z))

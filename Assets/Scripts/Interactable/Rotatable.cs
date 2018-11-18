@@ -19,6 +19,8 @@ public class Rotatable : Interactable
 
     public override void Interact(GameObject interacter)
     {
+        if (!AllowInteract) { return; }
+
         Vector3 targetRot = transform.rotation.eulerAngles + rotationInterval;
 
         targetRot.x %= 360.0f;
