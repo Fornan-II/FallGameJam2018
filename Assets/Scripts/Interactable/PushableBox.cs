@@ -33,8 +33,6 @@ public class PushableBox : Interactable
     {
         if(!AllowInteract) { return; }
 
-        Debug.Log(interacter.name + " interacts!");
-
         Vector3 deltaPosition = interacter.transform.position - transform.position;
         deltaPosition.y = 0.0f;
         if (Mathf.Abs(deltaPosition.x) > Mathf.Abs(deltaPosition.z))
