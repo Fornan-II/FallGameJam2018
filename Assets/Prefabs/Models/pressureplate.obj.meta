@@ -11,6 +11,8 @@ ModelImporter:
     400004: //RootNode
     2100000: blinn1SG
     2100002: blinn2SG
+    2100004: pCube1Mat
+    2100006: pCube2Mat
     2300000: pCube1
     2300002: pCube2
     3300000: pCube1

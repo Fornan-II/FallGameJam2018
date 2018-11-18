@@ -32,8 +32,9 @@ public class BoxDeployer : MonoBehaviour
         _currentlySpawnedBox = Instantiate(BoxPrefab, transform.position, transform.rotation);
     }
 
-    protected virtual void DestroyBox()
+    public virtual void DestroyBox()
     {
         Destroy(_currentlySpawnedBox);
+        _currentlySpawnedBox = null;
     }
 }

@@ -34,6 +34,20 @@ ModelImporter:
     400026: pCylinder1
     400028: //RootNode
     2100000: blinn1SG
+    2100002: pCone1Mat
+    2100004: pCone10Mat
+    2100006: pCone11Mat
+    2100008: pCone12Mat
+    2100010: pCone13Mat
+    2100012: pCone2Mat
+    2100014: pCone3Mat
+    2100016: pCone4Mat
+    2100018: pCone5Mat
+    2100020: pCone6Mat
+    2100022: pCone7Mat
+    2100024: pCone8Mat
+    2100026: pCone9Mat
+    2100028: pCylinder1Mat
     2300000: pCone1
     2300002: pCone10
     2300004: pCone11
