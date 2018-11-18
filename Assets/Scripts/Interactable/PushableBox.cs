@@ -29,7 +29,7 @@ public class PushableBox : Interactable
         }
     }
 
-    public override Vector3 Interact(GameObject interacter)
+    public override void Interact(GameObject interacter)
     {
         Vector3 deltaPosition = interacter.transform.position - transform.position;
         deltaPosition.y = 0.0f;
@@ -45,17 +45,13 @@ public class PushableBox : Interactable
         deltaPosition.Normalize();
 
         PushBox(deltaPosition * -1f);
-        deltaPosition += transform.position;
-        deltaPosition.y = _col.bounds.min.y;
-        return deltaPosition;
     }
 
     public bool PushBox(Vector3 direction)
     {
         if(_isBeingPushed) { return false; }
-
-        RaycastHit hit;
-        if(_rb.SweepTest(direction, out hit, PushDistance * 0.9f, QueryTriggerInteraction.Ignore))
+        
+        if (Physics.BoxCast(_col.bounds.center, _col.bounds.size / 2.1f, direction, transform.rotation, PushDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
         {
             Debug.Log("Failed sweep");
             return false;
