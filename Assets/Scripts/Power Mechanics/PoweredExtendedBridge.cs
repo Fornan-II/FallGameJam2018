@@ -7,6 +7,9 @@ public class PoweredExtendedBridge : MonoBehaviour
     public PowerSource source;
     public Transform _bridge;
 
+    public bool letExtend = true;
+    public bool letRetract = true;
+
     public Vector3 _retractedPosition;
     public Vector3 _extendedPosition;
     public float timeToExtend = 5.0f;
@@ -15,7 +18,7 @@ public class PoweredExtendedBridge : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(source.GetIsPowered())
+        if(source.GetIsPowered() && letExtend)
         {
             _bridge.position = Vector3.Lerp(_retractedPosition, _extendedPosition, extensionTime / timeToExtend);
             
@@ -28,7 +31,7 @@ public class PoweredExtendedBridge : MonoBehaviour
                 extensionTime = timeToExtend;
             }
         }
-        else
+        else if(letRetract)
         {
             _bridge.position = Vector3.Lerp(_retractedPosition, _extendedPosition, extensionTime / timeToExtend);
 
