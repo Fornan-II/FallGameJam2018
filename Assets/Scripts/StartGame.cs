@@ -33,7 +33,7 @@ public class StartGame : MonoBehaviour {
 
         if(player.GetComponent<PlayerController>())
         {
-            player.GetComponent<PlayerController>().enabled = false;
+            player.GetComponent<PlayerController>().LockCameraRot = true;
         }
 	}
 	
@@ -75,7 +75,7 @@ public class StartGame : MonoBehaviour {
 
         if (player.GetComponent<PlayerController>())
         {
-            player.GetComponent<PlayerController>().enabled = true;
+            player.GetComponent<PlayerController>().LockCameraRot = false;
         }
 
         /*while(size > minDist)

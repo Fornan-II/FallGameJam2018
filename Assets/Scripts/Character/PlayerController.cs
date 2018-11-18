@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public Pawn ControlledPawn;
 
     public string[] Inputs;
+    public bool LockCameraRot = false;
+
     private enum Action
     {
         JOYSTICK_HORIZONTAL,
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void PassRotateCameraAngleLeft(bool value)
     {
-        if (ControlledPawn)
+        if (ControlledPawn && !LockCameraRot)
         {
             ControlledPawn.HandleRotateCameraAngleLeft(value);
         }
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void PassRotateCameraAngleRight(bool value)
     {
-        if(ControlledPawn)
+        if(ControlledPawn && !LockCameraRot)
         {
             ControlledPawn.HandleRotateCameraAngleRight(value);
         }
