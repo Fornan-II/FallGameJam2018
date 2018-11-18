@@ -6,30 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour {
 
-    public GameObject startPanel;
+    public Text[] startTexts;
     GameObject player;
 
     Camera cam;
     Camera camScript;
-    float size;
-    float maxDist = 100;
-    float minDist = 7;
+    public float startSize;
+    public float endSize;
+    public float zoomTime = 7.0f;
     Vector3 startPos;
-    Vector3 endPos;
+    public Vector3 endPos = new Vector3(0, -14, -36);
+
+    protected bool _hasStarted = false;
 
 	// Use this for initialization
-	void Start () {
-        startPanel.SetActive(true);
-
+	void Start ()
+    {
         cam = Camera.main;
         camScript = cam.GetComponent<Camera>();
-        size = maxDist;
-        camScript.orthographicSize = size;
+        //size = maxDist;
+        //camScript.orthographicSize = size;
 
-        startPos = cam.transform.position;
+        startPos = cam.transform.localPosition;
 
-        player = GameObject.Find("Player");
-        endPos = new Vector3(0, -15, -36);
+        player = GameObject.Find("PlayerController");
 
         if(player.GetComponent<PlayerController>())
         {
@@ -38,22 +38,47 @@ public class StartGame : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-        camScript.orthographicSize = size;
-
-        if (Input.anyKey)
+	void Update ()
+    {
+        if (Input.anyKey && !_hasStarted)
         {
-            BeginGame();
+            StartCoroutine(BeginGame());
+            _hasStarted = true;
         }
 	}
 
-    void BeginGame()
+    protected IEnumerator BeginGame()
     {
-        startPanel.SetActive(false);
-        cam.transform.localPosition = Vector3.Lerp(startPos, endPos, 1);
+        cam.transform.localPosition = startPos;
+        startPos = cam.transform.localPosition;
 
-        while(size > minDist)
+        for(float timer = 0.0f; timer < zoomTime; timer += Time.deltaTime)
+        {
+            yield return null;
+
+            float lerpFactor = timer / zoomTime;
+
+            foreach(Text t in startTexts)
+            {
+                Color c = t.color;
+                c.a *= Mathf.Lerp(1.0f, 0.0f, lerpFactor * 2);
+                t.color = c;
+            }
+
+            cam.orthographicSize = Mathf.Lerp(startSize, endSize, lerpFactor);
+            cam.transform.localPosition = Vector3.Lerp(startPos, endPos, lerpFactor);
+        }
+
+        cam.transform.localPosition = endPos;
+
+        player = GameObject.Find("PlayerController");
+
+        if (player.GetComponent<PlayerController>())
+        {
+            player.GetComponent<PlayerController>().enabled = true;
+        }
+
+        /*while(size > minDist)
         {
             size -= 0.1f * Time.deltaTime;
             
@@ -67,6 +92,6 @@ public class StartGame : MonoBehaviour {
                 }
                 return;
             }
-        }
+        }*/
     }
 }
