@@ -23,13 +23,16 @@ public class yKill : MonoBehaviour
 
     public virtual void Respawn()
     {
-        transform.position = _startingPos;
-
         Rigidbody rb = GetComponent<Rigidbody>();
         if(rb)
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+
+        if(GameManager.Instance.CurrentPuzzle)
+        {
+            GameManager.Instance.CurrentPuzzle.RespawnPlayer(gameObject);
         }
     }
 }
