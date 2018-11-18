@@ -76,7 +76,7 @@ LightmapSettings:
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
-    m_PVRBounces: 2
+    m_PVRBounces: 4
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
@@ -224,7 +224,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -553,7 +553,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 50f885364c52a7245adca3c66d95ecbf, type: 2}
+      objectReference: {fileID: 2100000, guid: 58de93df4f9e68848b733e39c53d69ef, type: 2}
     - target: {fileID: 100000, guid: 841d5c7e76fc6fc49ace61cb5477303a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295

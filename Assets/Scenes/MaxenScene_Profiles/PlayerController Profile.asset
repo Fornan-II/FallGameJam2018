@@ -14,6 +14,7 @@ MonoBehaviour:
   settings:
   - {fileID: 114323788518849428}
   - {fileID: 114895530240140100}
+  - {fileID: 114630874996868888}
 --- !u!114 &114323788518849428
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -84,7 +85,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: 0
+    value: 1.5
   contrast:
     overrideState: 1
     value: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
     value: 0
   mixerGreenOutGreenIn:
     overrideState: 1
-    value: 100
+    value: 85
   mixerGreenOutBlueIn:
     overrideState: 1
     value: 0
@@ -1324,6 +1325,33 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &114630874996868888
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
+  m_Name: Grain
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  colored:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.17
+  size:
+    overrideState: 1
+    value: 0.65
+  lumContrib:
+    overrideState: 1
+    value: 1
 --- !u!114 &114895530240140100
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1341,13 +1369,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 4.58
+    value: 0.01
   threshold:
     overrideState: 1
     value: 0
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 1
   clamp:
     overrideState: 1
     value: 65472

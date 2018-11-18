@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
         JOYSTICK_VERTICAL,
         JUMP,
         INTERACT,
-        TOGGLE_SPRINT,
-        SWITCH_CAMERA_ANGLE
+        ROTATE_CAMERA_ANGLE_LEFT,
+        ROTATE_CAMERA_ANGLE_RIGHT
     }
 
     protected virtual void Update()
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
         PassJump(Input.GetButton(Inputs[(int)Action.JUMP]));
         PassInteract(Input.GetButtonDown(Inputs[(int)Action.INTERACT]));
-        PassSprint(Input.GetButtonDown(Inputs[(int)Action.TOGGLE_SPRINT]));
-        PassSwitchCameraAngle(Input.GetButtonDown(Inputs[(int)Action.SWITCH_CAMERA_ANGLE]));
+        PassRotateCameraAngleLeft(Input.GetButtonDown(Inputs[(int)Action.ROTATE_CAMERA_ANGLE_LEFT]));
+        PassRotateCameraAngleRight(Input.GetButtonDown(Inputs[(int)Action.ROTATE_CAMERA_ANGLE_RIGHT]));
     }
 
     protected virtual void PassJoystick(Vector2 input)
@@ -59,19 +59,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    protected virtual void PassSprint(bool value)
+    protected virtual void PassRotateCameraAngleLeft(bool value)
     {
         if (ControlledPawn)
         {
-            ControlledPawn.HandleSprint(value);
+            ControlledPawn.HandleRotateCameraAngleLeft(value);
         }
     }
 
-    protected virtual void PassSwitchCameraAngle(bool value)
+    protected virtual void PassRotateCameraAngleRight(bool value)
     {
         if(ControlledPawn)
         {
-            ControlledPawn.HandleSwitchCameraAngle(value);
+            ControlledPawn.HandleRotateCameraAngleRight(value);
         }
     }
     #endregion

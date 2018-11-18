@@ -95,21 +95,36 @@ public class Pawn : MonoBehaviour
         }
     }
 
-    public virtual void HandleSprint(bool value)
+    public virtual void HandleRotateCameraAngleLeft(bool value)
     {
         if(value)
         {
-            _isSprinting = !_isSprinting;
+            if (_activeCameraSlerpingCoroutine == null)
+            {
+                currentCameraAngleIndex--;
+                if (currentCameraAngleIndex < 0)
+                {
+                    currentCameraAngleIndex = cameraAngles.Length - 1;
+                }
+
+                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToNextCameraAngle(cameraAngles[currentCameraAngleIndex]));
+            }
         }
     }
 
-    public virtual void HandleSwitchCameraAngle(bool value)
+    public virtual void HandleRotateCameraAngleRight(bool value)
     {
         if (value)
         {
             if (_activeCameraSlerpingCoroutine == null)
             {
-                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToNextCameraAngle());
+                currentCameraAngleIndex++;
+                if (currentCameraAngleIndex >= cameraAngles.Length)
+                {
+                    currentCameraAngleIndex = 0;
+                }
+
+                _activeCameraSlerpingCoroutine = StartCoroutine(SlerpToNextCameraAngle(cameraAngles[currentCameraAngleIndex]));
             }
         }
     }
@@ -149,13 +164,9 @@ public class Pawn : MonoBehaviour
         _rb.velocity = newVelocity;
     }
 
-    protected IEnumerator SlerpToNextCameraAngle()
+    protected IEnumerator SlerpToNextCameraAngle(Vector3 targetAngle)
     {
-        currentCameraAngleIndex++;
-        if (currentCameraAngleIndex >= cameraAngles.Length)
-        {
-            currentCameraAngleIndex = 0;
-        }
+        
         
         float timeToReachTargetAngle = 0.7f;
         Quaternion startingRotation = cameraPivotTransform.rotation;
