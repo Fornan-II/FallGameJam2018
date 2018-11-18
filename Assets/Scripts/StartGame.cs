@@ -10,7 +10,6 @@ public class StartGame : MonoBehaviour {
     GameObject player;
 
     Camera cam;
-    Camera camScript;
     public float startSize;
     public float endSize;
     public float zoomTime = 7.0f;
@@ -23,7 +22,6 @@ public class StartGame : MonoBehaviour {
 	void Start ()
     {
         cam = Camera.main;
-        camScript = cam.GetComponent<Camera>();
         //size = maxDist;
         //camScript.orthographicSize = size;
 
@@ -79,21 +77,5 @@ public class StartGame : MonoBehaviour {
         {
             player.GetComponent<PlayerController>().LockCameraRot = false;
         }
-
-        /*while(size > minDist)
-        {
-            size -= 0.1f * Time.deltaTime;
-            
-            if (size <= minDist)
-            {
-                player = GameObject.Find("Player");
-
-                if (player.GetComponent<PlayerController>())
-                {
-                    player.GetComponent<PlayerController>().enabled = true;
-                }
-                return;
-            }
-        }*/
     }
 }
