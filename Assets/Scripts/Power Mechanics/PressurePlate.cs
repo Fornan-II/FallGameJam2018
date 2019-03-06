@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PressurePlate : PowerSource
 {
-    public float ExtraPowerTime = 0.3f;
-    protected float _powerTimeRemaining = 0.0f;
-
     protected Animator _anim;
 
     protected virtual void Start()
@@ -17,23 +14,17 @@ public class PressurePlate : PowerSource
 
     protected virtual void FixedUpdate()
     {
-        _anim.SetBool("IsDepressed", GetIsPowered());
+        _anim.SetBool("IsDepressed", _isPowered);
 
-        if(_powerTimeRemaining > 0.0f)
-        {
-            _powerTimeRemaining -= Time.fixedDeltaTime;
-        }
+        SendPower();
+
+        _isPowered = false;
     }
     protected virtual void OnTriggerStay(Collider other)
     {
         if(other.GetComponent<Rigidbody>())
         {
-            _powerTimeRemaining = ExtraPowerTime;
+            _isPowered = true;
         }
-    }
-
-    public override bool GetIsPowered()
-    {
-        return _powerTimeRemaining > 0.0f;
     }
 }

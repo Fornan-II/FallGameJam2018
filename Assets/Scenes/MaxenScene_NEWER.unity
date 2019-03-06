@@ -258,7 +258,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh592528
+  m_Name: pb_Mesh-9826
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -413,7 +413,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh516070
+  m_Name: pb_Mesh19382
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1184,10 +1184,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2280af3f4c843a44d8d6c2e22b67973a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: {fileID: 872641659}
   Rotator: {fileID: 297527102}
   poweredRotation: {x: 0, y: 0, z: 0}
   unPoweredRotation: {x: -90, y: 0, z: 0}
+  isPowered: 0
 --- !u!114 &297527102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh594408
+  m_Name: pb_Mesh-9980
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1689,6 +1689,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 200735101}
     m_Modifications:
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4794547295095434, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -1724,6 +1729,31 @@ Prefab:
     - target: {fileID: 1078796714041314, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
       propertyPath: m_Name
       value: pressureplate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 874508523}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPowered
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
@@ -2609,12 +2639,6 @@ Transform:
   m_Father: {fileID: 61368124}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &539913320 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1012220643}
-  m_Script: {fileID: 11500000, guid: bdd459e82be73204abd4d455ff449ca2, type: 3}
 --- !u!1 &543095639
 GameObject:
   m_ObjectHideFlags: 0
@@ -31928,6 +31952,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 200735101}
     m_Modifications:
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4794547295095434, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -31960,6 +31989,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 297527101}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPowered
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
   m_IsPrefabAsset: 0
@@ -31968,12 +32022,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4794547295095434, guid: 6f3e7e2b13daf514188a515fdca04be0,
     type: 2}
   m_PrefabInternal: {fileID: 872641657}
---- !u!114 &872641659 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
-    type: 2}
-  m_PrefabInternal: {fileID: 872641657}
-  m_Script: {fileID: 11500000, guid: bdd459e82be73204abd4d455ff449ca2, type: 3}
 --- !u!1 &874508522
 GameObject:
   m_ObjectHideFlags: 0
@@ -32002,10 +32050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2280af3f4c843a44d8d6c2e22b67973a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: {fileID: 1177318973}
   Rotator: {fileID: 874508524}
   poweredRotation: {x: 0, y: 0, z: 0}
   unPoweredRotation: {x: 90, y: 0, z: 0}
+  isPowered: 0
 --- !u!114 &874508524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32197,15 +32245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148a505112d4d8e4b90dbd59eaf1e613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 945481765}
   laser: {fileID: 687019033}
   ActiveByDefault: 0
---- !u!114 &945481765 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2066716278}
-  m_Script: {fileID: 11500000, guid: bdd459e82be73204abd4d455ff449ca2, type: 3}
 --- !u!1 &946274629
 GameObject:
   m_ObjectHideFlags: 0
@@ -33546,7 +33587,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh515910
+  m_Name: pb_Mesh19216
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -34947,18 +34988,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4238283804760390, guid: 78e27587d8537904aac74894aa1a7d33,
     type: 2}
   m_PrefabInternal: {fileID: 68987848}
---- !u!114 &1129117218 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114249744705144472, guid: 78e27587d8537904aac74894aa1a7d33,
-    type: 2}
-  m_PrefabInternal: {fileID: 68987848}
-  m_Script: {fileID: 11500000, guid: 833ae6425ffb60441ba4731de35d489c, type: 3}
---- !u!114 &1177318973 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
-    type: 2}
-  m_PrefabInternal: {fileID: 427168353}
-  m_Script: {fileID: 11500000, guid: bdd459e82be73204abd4d455ff449ca2, type: 3}
 --- !u!1001 &1178621959
 Prefab:
   m_ObjectHideFlags: 0
@@ -39771,10 +39800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2280af3f4c843a44d8d6c2e22b67973a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: {fileID: 539913320}
   Rotator: {fileID: 1428422002}
   poweredRotation: {x: 0, y: 0, z: 0}
   unPoweredRotation: {x: 180, y: 0, z: 0}
+  isPowered: 0
 --- !u!114 &1428422002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43005,7 +43034,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh591690
+  m_Name: pb_Mesh-9978
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -43560,7 +43589,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh594648
+  m_Name: pb_Mesh-9824
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -43767,6 +43796,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1947157691718802, guid: d680c56074bf4754abc836275fe0ee2f,
     type: 2}
   m_PrefabInternal: {fileID: 897166734}
+--- !u!114 &1786892162 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114874870590859444, guid: d680c56074bf4754abc836275fe0ee2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 897166734}
+  m_Script: {fileID: 11500000, guid: aa0646925dc2cb547b21eeec95f5c9d4, type: 3}
 --- !u!1 &1806864791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 841d5c7e76fc6fc49ace61cb5477303a,
@@ -43874,7 +43909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9ea6a798923ca4aaed53a45d30b7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 1129117218}
   _bridge: {fileID: 1705062298}
   letExtend: 1
   letRetract: 0
@@ -45001,7 +45035,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh516092
+  m_Name: pb_Mesh19410
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -45382,6 +45416,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 200735101}
     m_Modifications:
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4794547295095434, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -11.5
@@ -45417,6 +45456,31 @@ Prefab:
     - target: {fileID: 1078796714041314, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}
       propertyPath: m_Name
       value: pressureplate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1786892162}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetPowered
+      objectReference: {fileID: 0}
+    - target: {fileID: 114176393191902936, guid: 6f3e7e2b13daf514188a515fdca04be0,
+        type: 2}
+      propertyPath: PowerListeners.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3e7e2b13daf514188a515fdca04be0, type: 2}

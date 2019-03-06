@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoweredLaser : MonoBehaviour
+public class PoweredLaser : PowerReciever
 {
-    public PowerSource source;
     public LaserSource laser;
     public bool ActiveByDefault = true;
 
@@ -12,12 +11,11 @@ public class PoweredLaser : MonoBehaviour
     {
         if(ActiveByDefault)
         {
-            laser.LaserActive = !source.GetIsPowered();
+            laser.LaserActive = !_isPowered;
         }
         else
         {
-            laser.LaserActive = source.GetIsPowered();
+            laser.LaserActive = _isPowered;
         }
     }
-
 }

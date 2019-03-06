@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebugShowPowered : MonoBehaviour
+public class DebugShowPowered : PowerReciever
 {
     public PowerSource source;
     public bool isPowered;
 
     private void Update()
     {
-        if(source)
-        {
-            isPowered = source.GetIsPowered();
-        }
-        else
-        {
-            isPowered = false;
-        }
-        
+        isPowered = _isPowered;
     }
 }

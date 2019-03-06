@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoweredExtendedBridge : MonoBehaviour
+public class PoweredExtendedBridge : PowerReciever
 {
-    public PowerSource source;
     public Transform _bridge;
 
     public bool letExtend = true;
@@ -18,7 +17,7 @@ public class PoweredExtendedBridge : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(source.GetIsPowered() && letExtend)
+        if(_isPowered && letExtend)
         {
             _bridge.position = Vector3.Lerp(_retractedPosition, _extendedPosition, extensionTime / timeToExtend);
             

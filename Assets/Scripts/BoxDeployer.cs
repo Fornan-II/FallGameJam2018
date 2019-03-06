@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxDeployer : MonoBehaviour
+public class BoxDeployer : PowerReciever
 {
     public GameObject BoxPrefab;
-    public PowerSource TrackedPowerSource;
 
     protected GameObject _currentlySpawnedBox;
 
@@ -13,13 +12,12 @@ public class BoxDeployer : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        bool powerState = TrackedPowerSource.GetIsPowered();
-        if(powerState && powerState != _wasPowered)
+        if(_isPowered && _isPowered != _wasPowered)
         {
             OnBecomePowered();
         }
 
-        _wasPowered = powerState;
+        _wasPowered = _isPowered;
     }
 
     protected virtual void OnBecomePowered()
