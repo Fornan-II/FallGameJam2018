@@ -48,7 +48,7 @@ public class LaserSource : MonoBehaviour
             {
                 reciever.RecieveLaser();
             }
-            else if (hit.transform.tag == "Reflective" && _bounces < MaxBounces)
+            if (hit.transform.tag == "Reflective" && _bounces < MaxBounces)
             {
                 _bounces++;
                 _lr.positionCount++;

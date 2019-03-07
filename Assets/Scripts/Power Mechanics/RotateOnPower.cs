@@ -8,12 +8,9 @@ public class RotateOnPower : PowerReciever
 
     public Vector3 poweredRotation;
     public Vector3 unPoweredRotation;
-    public bool isPowered;
     
     protected virtual void FixedUpdate()
     {
-        isPowered = _isPowered;
-
         if(_isPowered)
         {
             Rotator.RotateObject(Quaternion.Euler(poweredRotation));
