@@ -38,7 +38,7 @@ public class PuzzleManager : MonoBehaviour
             PoweredExtendedBridge peb = PuzzleTrackedObjects[i].GetComponent<PoweredExtendedBridge>();
             if(peb)
             {
-                
+                peb.ResetBridge();
             }
         }
     }

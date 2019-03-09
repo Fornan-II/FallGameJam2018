@@ -47,6 +47,7 @@ public class PoweredExtendedBridge : PowerReciever
 
     public virtual void ResetBridge()
     {
-
+        extensionTime = 0.0f;
+        _bridge.position = _retractedPosition;
     }
 }
