@@ -17,20 +17,20 @@ public class PoweredExtendedBridge : PowerReciever
 
     protected virtual void FixedUpdate()
     {
-        if(_isPowered && letExtend)
+        if (_isPowered && letExtend)
         {
             _bridge.position = Vector3.Lerp(_retractedPosition, _extendedPosition, extensionTime / timeToExtend);
-            
-            if(extensionTime < timeToExtend)
+
+            if (extensionTime < timeToExtend)
             {
                 extensionTime += Time.fixedDeltaTime;
             }
-            else if(extensionTime >= timeToExtend)
+            else if (extensionTime >= timeToExtend)
             {
                 extensionTime = timeToExtend;
             }
         }
-        else if(letRetract)
+        else if (letRetract)
         {
             _bridge.position = Vector3.Lerp(_retractedPosition, _extendedPosition, extensionTime / timeToExtend);
 
@@ -43,5 +43,10 @@ public class PoweredExtendedBridge : PowerReciever
                 extensionTime = 0.0f;
             }
         }
+    }
+
+    public virtual void ResetBridge()
+    {
+
     }
 }

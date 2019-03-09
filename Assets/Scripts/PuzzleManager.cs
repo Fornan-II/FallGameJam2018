@@ -35,6 +35,11 @@ public class PuzzleManager : MonoBehaviour
             {
                 bd.DestroyBox();
             }
+            PoweredExtendedBridge peb = PuzzleTrackedObjects[i].GetComponent<PoweredExtendedBridge>();
+            if(peb)
+            {
+                
+            }
         }
     }
 
