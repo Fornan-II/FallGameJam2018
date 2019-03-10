@@ -13,12 +13,14 @@ public class PushableBox : Interactable
 
     protected Vector3 _startPosition;
     protected Vector3 _targetPosition;
-
+    protected Transform _originalParent;
 
     protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _col = GetComponent<Collider>();
+
+        _originalParent = transform.parent;
     }
 
     protected virtual void FixedUpdate()
@@ -65,18 +67,30 @@ public class PushableBox : Interactable
             pushPosition.y = _col.bounds.min.y;
             pushPosition += (direction * PushDistance);
             Ray groundCheckRay = new Ray(pushPosition + (Vector3.up * checkDistance * 0.5f), Vector3.down);
-            Debug.DrawRay(groundCheckRay.origin, groundCheckRay.direction * checkDistance, Color.green, 1.0f);
-            if(Physics.Raycast(groundCheckRay, checkDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+            RaycastHit hit;
+            //Debug.DrawRay(groundCheckRay.origin, groundCheckRay.direction * checkDistance, Color.green, 1.0f);
+            if(Physics.Raycast(groundCheckRay, out hit, checkDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
                 _isBeingPushed = true;
                 _startPosition = transform.position;
                 _targetPosition = transform.position + (direction * PushDistance);
-                Debug.Log("Success");
+
+                PushBoxParent newParent = hit.transform.GetComponent<PushBoxParent>();
+                if(newParent)
+                {
+                    transform.parent = newParent.transform;
+                }
+                else
+                {
+                    transform.parent = _originalParent;
+                }
+
+                //Debug.Log("Success");
                 return true;
             }
             else
             {
-                Debug.Log("Failed ground check");
+                //Debug.Log("Failed ground check");
                 return false;
             }
         }
