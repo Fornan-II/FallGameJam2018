@@ -28,7 +28,10 @@ public class CullTarget : MonoBehaviour
 
     public void SetVisibility(bool value)
     {
-        sceneTargets[this] = value;
+        if (GameManager.Instance.CurrentPuzzle != Puzzle)
+        {
+            sceneTargets[this] = value;
+        }
     }
 
     protected void LateUpdate()
@@ -50,6 +53,11 @@ public class CullTarget : MonoBehaviour
     protected void GetRenderers()
     {
         List<Renderer> foundRenderers = new List<Renderer>(transform.parent.GetComponentsInChildren<Renderer>());
+        if (Puzzle)
+        {
+            foundRenderers.AddRange(Puzzle.GetComponentsInChildren<Renderer>());
+        }
+
         for (int i = 0; i < foundRenderers.Count; i++)
         {
             if (!foundRenderers[i].enabled)
@@ -57,11 +65,6 @@ public class CullTarget : MonoBehaviour
                 foundRenderers.RemoveAt(i);
                 i--;
             }
-        }
-
-        if (Puzzle)
-        {
-            foundRenderers.AddRange(Puzzle.GetComponentsInChildren<Renderer>());
         }
 
         visualComponents = foundRenderers.ToArray();
