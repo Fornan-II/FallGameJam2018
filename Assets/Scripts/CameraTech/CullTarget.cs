@@ -6,7 +6,8 @@ public class CullTarget : MonoBehaviour
 {
     public static Dictionary<CullTarget, bool> sceneTargets;
 
-    protected MeshRenderer _mr;
+    public Renderer[] visualComponents;
+    protected bool _isActive;
 
     protected void Awake()
     {
@@ -16,6 +17,7 @@ public class CullTarget : MonoBehaviour
         }
 
         sceneTargets.Add(this, true);
+        _isActive = true;
     }
 
     protected void OnDestroy()
@@ -23,20 +25,30 @@ public class CullTarget : MonoBehaviour
         sceneTargets.Remove(this);
     }
 
-    protected void Start()
-    {
-        _mr = gameObject.GetComponent<MeshRenderer>();
-    }
-
     public void SetVisibility(bool value)
     {
         sceneTargets[this] = value;
     }
 
-    private void LateUpdate()
+    protected void LateUpdate()
     {
-        _mr.enabled = sceneTargets[this];
+        if (_isActive != sceneTargets[this])
+        {
+            foreach (Renderer r in visualComponents)
+            {
+                r.enabled = sceneTargets[this];
+            }
+            _isActive = sceneTargets[this];
+        }
 
         sceneTargets[this] = true;
     }
+
+#if UNITY_EDITOR
+    [ContextMenu("Get Renderers")]
+    protected void GetRenderers()
+    {
+        visualComponents = transform.parent.GetComponentsInChildren<Renderer>(true);
+    }
+#endif
 }
