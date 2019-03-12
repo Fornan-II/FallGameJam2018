@@ -43,12 +43,12 @@ public class LaserSource : MonoBehaviour
         if (Physics.Raycast(laserRayCast, out hit, 100.0f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
         {
             _lr.SetPosition(_lr.positionCount - 1, hit.point);
-            LaserReciever reciever = hit.transform.GetComponent<LaserReciever>();
+            LaserReciever reciever = hit.collider.GetComponent<LaserReciever>();
             if (reciever)
             {
                 reciever.RecieveLaser();
             }
-            if (hit.transform.tag == "Reflective" && _bounces < MaxBounces)
+            if (hit.collider.tag == "Reflective" && _bounces < MaxBounces)
             {
                 _bounces++;
                 _lr.positionCount++;

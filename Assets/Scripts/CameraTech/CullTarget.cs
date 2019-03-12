@@ -7,6 +7,7 @@ public class CullTarget : MonoBehaviour
     public static Dictionary<CullTarget, bool> sceneTargets;
 
     public Renderer[] visualComponents;
+    public PuzzleManager Puzzle;
     protected bool _isActive;
 
     protected void Awake()
@@ -48,7 +49,22 @@ public class CullTarget : MonoBehaviour
     [ContextMenu("Get Renderers")]
     protected void GetRenderers()
     {
-        visualComponents = transform.parent.GetComponentsInChildren<Renderer>(true);
+        List<Renderer> foundRenderers = new List<Renderer>(transform.parent.GetComponentsInChildren<Renderer>());
+        for (int i = 0; i < foundRenderers.Count; i++)
+        {
+            if (!foundRenderers[i].enabled)
+            {
+                foundRenderers.RemoveAt(i);
+                i--;
+            }
+        }
+
+        if (Puzzle)
+        {
+            foundRenderers.AddRange(Puzzle.GetComponentsInChildren<Renderer>());
+        }
+
+        visualComponents = foundRenderers.ToArray();
     }
 #endif
 }
